@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTTP Response Review</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:#e5e7eb;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+h1{
+    font-size:42px;
+    color:#60a5fa;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#93c5fd;
+    margin-bottom:15px;
+}
+
+p{
+    color:#d1d5db;
+}
+
+pre{
+    background:#020617;
+    color:#f8fafc;
+    padding:20px;
+    border-radius:12px;
+    overflow:auto;
+    border:1px solid #334155;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    background:#1d4ed8;
+    color:white;
+}
+
+th,td{
+    border:1px solid #334155;
+    padding:12px;
+    text-align:left;
+}
+
+ul{
+    padding-left:25px;
+}
+
+.check{
+    margin:12px 0;
+    font-size:17px;
+}
+
+button{
+    margin-top:25px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>📥 HTTP Response</h1>
+
+<p>
+The <strong>HTTP Response</strong> is the message returned by the web server after receiving an HTTP Request.
+</p>
+
+<br>
+
+<p dir="rtl">
+<b>استجابة HTTP</b> هي الرسالة التي يرسلها خادم الويب إلى المتصفح بعد معالجة طلب HTTP.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🌍 HTTP Response Structure</h2>
+
+<pre><code>HTTP/1.1 200 OK
+Date: Thu, 13 May 2004 10:17:12 GMT
+Server: Apache
+Content-Length: 18070
+Content-Type: text/html; charset=ISO-8859-1
+Connection: Keep-Alive
+
+&lt;html&gt;
+...
+&lt;/html&gt;
+</code></pre>
+
+</div>
+
+<div class="card">
+
+<h2>🔍 Anatomy of an HTTP Response</h2>
+
+<table>
+
+<tr>
+<th>Field</th>
+<th>English</th>
+<th>العربي</th>
+</tr>
+
+<tr>
+<td>HTTP/1.1</td>
+<td>Protocol Version</td>
+<td>إصدار البروتوكول</td>
+</tr>
+
+<tr>
+<td>200 OK</td>
+<td>Status Code</td>
+<td>رمز حالة الطلب</td>
+</tr>
+
+<tr>
+<td>Date</td>
+<td>Response Time</td>
+<td>وقت إرسال الاستجابة</td>
+</tr>
+
+<tr>
+<td>Server</td>
+<td>Web Server Software</td>
+<td>برنامج الخادم</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>Returned Content Type</td>
+<td>نوع المحتوى المُرسل</td>
+</tr>
+
+<tr>
+<td>Content-Length</td>
+<td>Response Size</td>
+<td>حجم البيانات</td>
+</tr>
+
+<tr>
+<td>Connection</td>
+<td>Connection State</td>
+<td>حالة الاتصال</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>📊 Common HTTP Status Codes</h2>
+
+<table>
+
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>العربي</th>
+</tr>
+
+<tr>
+<td>200</td>
+<td>OK</td>
+<td>تم تنفيذ الطلب بنجاح</td>
+</tr>
+
+<tr>
+<td>301</td>
+<td>Moved Permanently</td>
+<td>إعادة توجيه دائمة</td>
+</tr>
+
+<tr>
+<td>302</td>
+<td>Found / Redirect</td>
+<td>إعادة توجيه مؤقتة</td>
+</tr>
+
+<tr>
+<td>403</td>
+<td>Forbidden</td>
+<td>الوصول مرفوض</td>
+</tr>
+
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>الصفحة غير موجودة</td>
+</tr>
+
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+<td>خطأ داخلي في الخادم</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>🧪 Example from Wireshark</h2>
+
+<pre><code>HTTP/1.1 200 OK
+
+Server: Apache
+
+Content-Type: text/html
+
+Content-Length: 18070
+</code></pre>
+
+<p>
+
+<b>200 OK</b> means the server successfully processed the request.
+
+</p>
+
+<br>
+
+<p dir="rtl">
+
+<b>200 OK</b> تعني أن الخادم استقبل الطلب ونفذه بنجاح.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>📦 Response Body</h2>
+
+<p>
+
+After the response headers, the server sends the requested content.
+
+This may include:
+
+</p>
+
+<ul>
+
+<li>HTML Pages</li>
+
+<li>CSS Files</li>
+
+<li>JavaScript Files</li>
+
+<li>Images</li>
+
+<li>JSON Data</li>
+
+<li>PDF Files</li>
+
+</ul>
+
+<br>
+
+<p dir="rtl">
+
+بعد الهيدرز يبدأ السيرفر في إرسال المحتوى الحقيقي المطلوب.
+
+قد يكون:
+
+</p>
+
+<ul dir="rtl">
+
+<li>صفحات HTML</li>
+
+<li>ملفات CSS</li>
+
+<li>ملفات JavaScript</li>
+
+<li>صور</li>
+
+<li>JSON</li>
+
+<li>ملفات PDF</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>📝 Quick Revision</h2>
+
+<div class="check">✅ HTTP Response is sent by the server.</div>
+
+<div class="check">✅ Starts with a Status Code.</div>
+
+<div class="check">✅ Contains Response Headers.</div>
+
+<div class="check">✅ Contains the Response Body.</div>
+
+<div class="check">✅ Content-Length tells the browser how much data to expect.</div>
+
+<div class="check">✅ Content-Type tells the browser how to render the content.</div>
+
+</div>
+
+<div class="card">
+
+<h2>✔ Before You Continue</h2>
+
+<div class="check"><input type="checkbox"> I know what a Status Code is.</div>
+
+<div class="check"><input type="checkbox"> I know what Content-Type means.</div>
+
+<div class="check"><input type="checkbox"> I know what Content-Length means.</div>
+
+<div class="check"><input type="checkbox"> I can identify an HTTP Response in Wireshark.</div>
+
+<button>🚀 Start Lab</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
