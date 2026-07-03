@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTTP Request Review</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Poppins,sans-serif;
+    background:#f5f8fc;
+    color:#1f2937;
+    line-height:1.8;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:.95;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.code{
+    background:#111827;
+    color:#f9fafb;
+    padding:20px;
+    border-radius:12px;
+    overflow:auto;
+    font-family:Consolas,monospace;
+    margin-top:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+}
+
+table th,table td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:left;
+}
+
+.tip{
+    background:#ecfeff;
+    border-left:5px solid #06b6d4;
+    padding:18px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.footer{
+    text-align:center;
+    color:#777;
+    margin-top:40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="hero">
+<h1>HTTP Request</h1>
+<p>Review Notes | PacketForge Networking Labs</p>
+</div>
+
+<div class="card">
+
+<h2>📖 What is an HTTP Request?</h2>
+
+<p>
+An <b>HTTP Request</b> is a message sent from the client (browser) to a web server asking for a resource.
+</p>
+
+<p dir="rtl">
+<b>طلب HTTP</b> هو رسالة يرسلها المتصفح إلى خادم الويب لطلب صفحة أو ملف أو أي مورد آخر.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🌐 Request Structure</h2>
+
+<div class="code">
+GET /download.html HTTP/1.1
+
+Host: www.ethereal.com
+
+User-Agent: Mozilla/5.0 (Windows NT 5.1)
+
+Accept: text/html
+
+Connection: keep-alive
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🔍 Explanation</h2>
+
+<table>
+
+<tr>
+<th>Field</th>
+<th>English</th>
+<th>العربي</th>
+</tr>
+
+<tr>
+<td>GET</td>
+<td>HTTP Method</td>
+<td>نوع الطلب</td>
+</tr>
+
+<tr>
+<td>/download.html</td>
+<td>Requested Resource</td>
+<td>الملف المطلوب</td>
+</tr>
+
+<tr>
+<td>HTTP/1.1</td>
+<td>Protocol Version</td>
+<td>إصدار البروتوكول</td>
+</tr>
+
+<tr>
+<td>Host</td>
+<td>Website Name</td>
+<td>اسم الموقع المطلوب</td>
+</tr>
+
+<tr>
+<td>User-Agent</td>
+<td>Browser Information</td>
+<td>معلومات المتصفح</td>
+</tr>
+
+<tr>
+<td>Accept</td>
+<td>Supported Content Types</td>
+<td>أنواع الملفات المقبولة</td>
+</tr>
+
+<tr>
+<td>Connection</td>
+<td>Keep Connection Alive</td>
+<td>الإبقاء على الاتصال مفتوحًا</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>🚀 Common HTTP Methods</h2>
+
+<table>
+
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>الوصف</th>
+</tr>
+
+<tr>
+<td>GET</td>
+<td>Retrieve Data</td>
+<td>جلب البيانات</td>
+</tr>
+
+<tr>
+<td>POST</td>
+<td>Send Data</td>
+<td>إرسال البيانات</td>
+</tr>
+
+<tr>
+<td>PUT</td>
+<td>Update Resource</td>
+<td>تحديث مورد</td>
+</tr>
+
+<tr>
+<td>DELETE</td>
+<td>Delete Resource</td>
+<td>حذف مورد</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+
+<h2>💡 Example from Wireshark</h2>
+
+<div class="code">
+GET /download.html HTTP/1.1
+Host: www.ethereal.com
+User-Agent: Mozilla/5.0 (Windows NT 5.1)
+Accept: text/html
+Connection: keep-alive
+</div>
+
+<div class="tip">
+
+<b>English</b><br>
+
+The browser requests the file <b>/download.html</b> from the server
+<b>www.ethereal.com</b>.
+
+<br><br>
+
+<b dir="rtl">العربي</b><br>
+
+يقوم المتصفح بطلب الملف <b>/download.html</b> من الخادم
+<b>www.ethereal.com</b>.
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>📝 Quick Revision</h2>
+
+<ul>
+
+<li>✅ HTTP is an Application Layer protocol.</li>
+
+<li>✅ HTTP uses TCP.</li>
+
+<li>✅ Default Port: 80.</li>
+
+<li>✅ HTTPS uses Port 443.</li>
+
+<li>✅ Every HTTP Request contains a Method.</li>
+
+<li>✅ The Host header specifies the destination website.</li>
+
+<li>✅ User-Agent identifies the client application.</li>
+
+</ul>
+
+</div>
+
+<div class="footer">
+
+PacketForge Networking Labs © 2026
+
+</div>
+
+</div>
+
+</body>
+</html>
